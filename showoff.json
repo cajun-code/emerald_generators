@@ -1,1 +1,5 @@
-{"name":"My Preso","sections":[{"section":"one","section":"plugin"}]}
+{"name":"RailsPlugins","sections":[
+                                   {"section":"agenda"},
+                                   {"section":"plugin"},
+                                   {"section":"generators"}
+                                   ]}
