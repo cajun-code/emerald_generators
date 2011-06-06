@@ -1,5 +1,6 @@
 {"name":"RailsPlugins","sections":[
                                    {"section":"agenda"},
+                                   {"section":"generators"},
                                    {"section":"plugin"},
-                                   {"section":"generators"}
+                                   {"section":"gems"}
                                    ]}
