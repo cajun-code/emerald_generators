@@ -7,4 +7,4 @@
 * System use to distribute external libraries.
 * Zip compressed file for libraries storage
 
-!Slide bullets
+!SLIDE bullets

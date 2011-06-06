@@ -70,7 +70,7 @@
       create  lib/generators/install/USAGE
       create  lib/generators/install/templates
 
-!SLIDE bullets
+!SLIDE bullets small
 #Created Two Files and a Folder#
 
 * _generator.rb - Worker file

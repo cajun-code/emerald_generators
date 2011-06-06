@@ -6,7 +6,7 @@
 
 ###Encapsulated functionality meant to extend rails###
   
-!SLIDE commandline
+!SLIDE commandline smaller
 
     $ rails plugin
     
@@ -35,7 +35,7 @@
 !SLIDE 
 #Creating a plugin#
 
-!SLIDE commandline
+!SLIDE commandline smaller
     $ rails g plugin
     
     Usage:
