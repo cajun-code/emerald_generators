@@ -1,7 +1,7 @@
 !SLIDE 
 # Plug-ins #
 
-!SLIDE  
+!SLIDE  bullets
 #What are Plugins#
 
 * Encapsulated functionality meant to extend rails
