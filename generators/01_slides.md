@@ -1,6 +1,12 @@
 !SLIDE
 #Generators#
 
+!SLIDE bullets
+#What is a generator?#
+* Generator is a rails command line process to generate something inside the application
+* Any commands run under rails generate is a generator.
+* You can view the list of available generators by typing rails g
+
 !SLIDE commandline smaller
 
     $ rails g
@@ -87,7 +93,7 @@
     end
     
 !SLIDE commandline small
-#USAGE#
+#The USAGE file.#
     $ cat USAGE
     
     Description:
@@ -98,3 +104,63 @@
     
         This will create:
             what/will/it/create
+
+!SLIDE code smaller
+#Download the 960 stylesheets#
+### https://raw.github.com/nathansmith/960-Grid-System/master/code/css/ ###
+
+    @@@ Bash
+    $ cd lib/generators/install/templates
+    $ wget https://.../960.css
+    $ wget https://.../reset.css
+    $ wget https://.../text.css
+    
+!SLIDE code smaller
+#Lets edit the install_generator.rb to copy the stylesheets dir in the app#
+    @@@ Ruby
+    module Grid960
+      class InstallGenerator < Rails::Generators::Base
+        source_root File.expand_path('../templates', __FILE__)
+        def remove_old_layout
+          remove_file "app/views/layouts/application.html.erb"
+        end
+        
+        def copy_stylesheets
+          copy_file "960.css", "public/stylesheets/960.css"
+          copy_file "reset.css", "public/stylesheets/reset.css"
+          copy_file "text.css", "public/stylesheets/text.css"
+          template "layout.html.erb", "app/views/layouts/application.html.erb"
+        end
+        def app_name
+          Rails.application.class.name.split("::")[0]
+        end
+      end
+    end
+    
+!SLIDE code smaller
+#layout.html.erb#
+## Create in the templates directory##
+    @@@ Ruby
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title><%= app_name %></title>
+      <%%= stylesheet_link_tag "reset" %>
+      <%%= stylesheet_link_tag "text" %>
+      <%%= stylesheet_link_tag "960" %>
+      <%%= stylesheet_link_tag "scaffold" %>
+      <%%= javascript_include_tag :defaults %>
+      <%%= csrf_meta_tag %>
+    </head>
+    <body>
+    
+    <%= yield %>
+    
+    </body>
+    </html>
+    
+!SLIDE code
+#Execute the generator#
+
+    @@@ Bash
+    $ rails g grid960:install
