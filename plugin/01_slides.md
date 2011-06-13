@@ -4,8 +4,9 @@
 !SLIDE  
 #What are Plugins#
 
-###Encapsulated functionality meant to extend rails###
-  
+* Encapsulated functionality meant to extend rails
+* Plugins are installed into a rails application
+
 !SLIDE commandline smaller
 
     $ rails plugin
@@ -68,20 +69,38 @@
             vendor/plugins/browser_filters/test/browser_filters_test.rb
 
 !SLIDE commandline
+# Create grid960 plugin#
+    $ rails g plugin grid960
 
-    $ rails g plugin grid_960
-
-      create  vendor/plugins/grid_960
-      create  vendor/plugins/grid_960/MIT-LICENSE
-      create  vendor/plugins/grid_960/README
-      create  vendor/plugins/grid_960/Rakefile
-      create  vendor/plugins/grid_960/init.rb
-      create  vendor/plugins/grid_960/install.rb
-      create  vendor/plugins/grid_960/uninstall.rb
-      create  vendor/plugins/grid_960/lib
-      create  vendor/plugins/grid_960/lib/grid_960.rb
+      create  vendor/plugins/grid960
+      create  vendor/plugins/grid960/MIT-LICENSE
+      create  vendor/plugins/grid960/README
+      create  vendor/plugins/grid960/Rakefile
+      create  vendor/plugins/grid960/init.rb
+      create  vendor/plugins/grid960/install.rb
+      create  vendor/plugins/grid960/uninstall.rb
+      create  vendor/plugins/grid960/lib
+      create  vendor/plugins/grid960/lib/grid960.rb
       invoke  test_unit
-      inside    vendor/plugins/grid_960
+      inside    vendor/plugins/grid960
       create      test
-      create      test/grid_960_test.rb
+      create      test/grid960_test.rb
       create      test/test_helper.rb
+
+!SLIDE code small
+#Copy the generator#
+##from lib to plugin##
+*****
+    @@@ Bash
+    $cp -R lib/generators vendor/plugins/grid960/lib
+
+!SLIDE code 
+#Rails G#
+##to check if generator loaded##
+******
+    @@@ Bash
+    $rails g
+    
+    Grid960
+      grid960:install
+      
